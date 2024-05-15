@@ -59,7 +59,7 @@ function App() {
         <h1 id="title">Markdown Previewer</h1>
         <div id="box">
           <textarea
-            name="editor"
+            
             id="editor"
             cols="30"
             rows="10"
