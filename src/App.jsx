@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 
 import "./App.css";
@@ -53,11 +53,30 @@ And here. | Okay. | I think we get it.
 function App() {
   const [text, setText] = useState (markdownText);
 
+ function editor(a) {
+  let e =document.getElementById("editor")
+  let p =document.getElementById("preview")
+  if (a === "editor"  ) {
+e.innerHTML = "close"
+p.style.display = "none"
+e.style.cols = 100 + "%"
+e.style.rows = 100 + "%"
+  } else  {
+    p.innerHTML = "close"
+e.style.display = "none"
+
+
+  }
+
+
+ }
   return (
     <>
       <div id="container">
+      
         <h1 id="title">Markdown Previewer</h1>
         <div id="box">
+          <div id="editor-tor" onClick={() => editor("editor")}>editor</div>
           <textarea
             
             id="editor"
@@ -66,10 +85,11 @@ function App() {
             value={text}
             onChange={(e) => setText(e.target.value)}
           ></textarea>
-          <div id="preview">
+          <div id="preview" >
+            <div id="preview-tor" onClick={() => editor("preview")}>preview</div>
             <ReactMarkdown>{text}</ReactMarkdown>
           </div>
-        </div>
+        </div> 
       </div>
     </>
   );
