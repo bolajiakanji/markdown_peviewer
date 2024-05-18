@@ -52,20 +52,57 @@ And here. | Okay. | I think we get it.
 
 function App() {
   const [text, setText] = useState (markdownText);
+  const [isFullEditor, setIsFullEditor] = useState (false);
+  const [isFullpreview, setisFullPreview] = useState (false);
+
 
  function editor(a) {
-  let e =document.getElementById("editor")
-  let p =document.getElementById("preview")
+  let e =document.getElementById("editor-box")
+  let p =document.getElementById("preview-box")
+  let pp =document.getElementById("pre-name")
+  let ee =document.getElementsByClassName("torque")
+  let eee =document.getElementById("editor")
+  let eeee =document.getElementById("edior")
+
+
+
+
   if (a === "editor"  ) {
-e.innerHTML = "close"
+    if (!isFullEditor) {
+      
+ee[0].innerText = "close"
 p.style.display = "none"
-e.style.cols = 100 + "%"
-e.style.rows = 100 + "%"
+
+eee.style.wdth = 100 + "%"
+eee.style.height = 65 + "rem"
+setIsFullEditor(true)
   } else  {
-    p.innerHTML = "close"
-e.style.display = "none"
+    ee[0].innerHTML = "maximise"
+p.style.display = "block"
 
 
+
+eee.style.widh = 13 + "rem"
+eee.style.height = 120 + "px"
+setIsFullEditor(false)
+
+  } } else {
+    if (!isFullpreview) {
+      ee[1].innerHTML = "close"
+      e.style.display = "none"
+      
+      
+      p.style.widh = 100 + "%"
+      p.style.height = 100 + "%"
+      setisFullPreview(true)
+        } else  {
+          ee[1].innerHTML = "maximise"
+      e.style.display = "block"
+      
+      
+      
+      setisFullPreview(false)
+        }
   }
 
 
@@ -74,20 +111,33 @@ e.style.display = "none"
     <>
       <div id="container">
       
+
+      
         <h1 id="title">Markdown Previewer</h1>
         <div id="box">
-          <div id="editor-tor" onClick={() => editor("editor")}>editor</div>
+          <div id="editor-box">
+          <div className="header">
+          <div className="name">yousay</div>
+          <div className="torque" onClick={() => editor("editor")}>maximise</div>
+          </div>
           <textarea
             
             id="editor"
-            cols="30"
-            rows="10"
+            
+            
             value={text}
             onChange={(e) => setText(e.target.value)}
           ></textarea>
-          <div id="preview" >
-            <div id="preview-tor" onClick={() => editor("preview")}>preview</div>
+          </div>
+          <div id="preview-box" >
+            <div className="header">
+            <div className="name">aysf</div>
+
+            <div className="torque" onClick={() => editor("preview")}>maximise</div>
+            </div  >
+            <div id="preview">
             <ReactMarkdown>{text}</ReactMarkdown>
+            </div>
           </div>
         </div> 
       </div>

@@ -2,6 +2,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  user-select: none;
 }
 
 body {
@@ -9,12 +10,12 @@ body {
 }
 
 #container {
-  margin: 0 auto;
-  width: 450px;
+  margn: 0 auo;
   
-  heigt: 100vh;
+  
+  
   padding-top: 30px;
-  border-radius: 20px;
+  border-rdius: 20px;
   
 }
 
@@ -24,26 +25,44 @@ body {
   margin-bottom: 25px ;
 }
 
-#editor {
-  display: flex;
+#editor-box {
+  dispay: flex;
   margin: 0 auto;
   justify-content: center;
   background-color: black;
   color: white;
+  width: 35%;
+  heiht: 200px;
+  
   
 }
 
-#preview {
+.header {
   display: flex;
-  align-items: center;
-  flex-direction: column;
-  border: 2px solid black;
-  margin-top: 25px;
+  justify-content: space-between;
+}
+
+#editor {
+  width: 100%;
+  /* height: 54rem; */
+  height: 10rem;
+  overflow: visible;
   
-  widh: 320px;
-  margin: 30px auto;
-  background-colr: white;
-  font-size: 0.8rem;
+}
+
+#preview-box {
+  margin: 0 auto;
+  justfy-content: center;
+  background-color: green;
+  color: white;
+  fontsize: 1vw;
+  width:80%;
+  padding: 5px 0px 5px 12px;
+  padding-rigt: 10px;
+  overflow: hiden;
+}
+#preview{
+  font-size: 2vw;
 }
 
 @media only screen and (max-width: 650px) {
@@ -52,8 +71,21 @@ body {
       width: 100%
       
   }
+  #editor-box {
+    width: 60%;
+    heigt:100px ;
 
+  }
+  #editor{
+    height: 120px;
+  }
+  
   #preview {
+    width: 96%;
+    font-size: 2.8vw;
+  }
+
+  #prevew {
     width: 100%;
     padding-right: 4px;
     padding-left: 6px;
