@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
+import { Marked, marked } from "marked";
 
 import "./App.css";
+marked.setOptions({
+  breaks: true,
+});
+
 
 // defaultMarkdown contains valid markdown that represents at least one of each of the following elements: a header (H1 size), a sub header (H2 size), a link, inline code, a code block, a list item, a blockquote, an image, and bolded text
 const markdownText = `# Welcome to my React Markdown Previewer!
@@ -135,9 +140,10 @@ setIsFullEditor(false)
 
             <div className="torque" onClick={() => editor("preview")}>maximise</div>
             </div  >
-            <div id="preview">
+            <div id="preview" dangerouslySetInnerHTML={{__html:marked(text)}} />
+            {/* <div id="preview">
             <ReactMarkdown>{text}</ReactMarkdown>
-            </div>
+            </div> */}
           </div>
         </div> 
       </div>

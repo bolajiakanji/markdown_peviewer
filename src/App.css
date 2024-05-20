@@ -17,6 +17,7 @@ body {
   padding-top: 30px;
   border-rdius: 20px;
   
+  
 }
 
 #title {
@@ -63,6 +64,8 @@ body {
 }
 #preview{
   font-size: 2vw;
+  word-wrap: break-word;
+  word-break: keep-all;
 }
 
 @media only screen and (max-width: 650px) {
